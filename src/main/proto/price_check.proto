@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.pricecheck";
+option java_outer_classname = "PriceCheckProto";
+option objc_class_prefix = "PRCK";
+
+package pricecheck;
+
+service PriceCheck {
+    rpc GetPrices(GetPricesRequest) returns (stream Price) {}
+}
+
+message GetPricesRequest {
+    string sku = 1;
+}
+
+message Price {
+    double price = 1;
+}
