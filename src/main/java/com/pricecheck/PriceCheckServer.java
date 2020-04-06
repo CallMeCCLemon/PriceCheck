@@ -3,7 +3,6 @@ package com.pricecheck;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.pricecheck.module.PriceCheckModule;
-import com.sun.net.httpserver.HttpServer;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import lombok.extern.log4j.Log4j2;
