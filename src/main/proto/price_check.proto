@@ -8,13 +8,19 @@ option objc_class_prefix = "PRCK";
 package pricecheck;
 
 service PriceCheck {
-    rpc GetPrices(GetPricesRequest) returns (stream Price) {}
+    rpc GetPrices(GetPricesRequest) returns (GetPricesResponse) {}
 }
 
 message GetPricesRequest {
     string sku = 1;
 }
 
+message GetPricesResponse {
+    repeated Price prices = 1;
+}
+
 message Price {
     double price = 1;
+    string seller = 2;
+    string seller_website = 3;
 }
