@@ -26,7 +26,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
     implementation 'org.apache.logging.log4j:log4j-api:2.13.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.13.1'
@@ -48,8 +47,8 @@ dependencies {
     testImplementation "io.grpc:grpc-testing:${grpcVersion}"
 
     // Spock testing dependencies
-    testImplementation 'org.codehaus.groovy:groovy-all:2.5.7'
-    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+    testImplementation('org.codehaus.groovy:groovy:3.0.7')
+    testImplementation('org.spockframework:spock-core:2.0-M4-groovy-3.0')
 }
 
 sourceSets {
@@ -79,3 +78,12 @@ protobuf {
 
 apply plugin: 'idea'
 apply plugin: 'application'
+
+startScripts.enabled = false
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
